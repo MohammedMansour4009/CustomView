@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="isValid"
+            type="Boolean" />
+
+        <variable
+            name="require"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="8dp"
+            android:background="@{isValid &amp; require  ? @drawable/background_create_ad_spinner_error : @drawable/background_row_spinner, default=@drawable/background_row_spinner}"
+            android:drawablePadding="15dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:padding="14dp"
+            android:text="Ads Type"
+            android:textColor="@color/black"
+            app:drawableEndCompat="@drawable/ic_arrow_down"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/background_row_spinner"
+            tools:text="Ads Type" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_error_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:text="Please select"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="14sp"
+            android:visibility="@{isValid &amp; require  ? View.VISIBLE :  View.GONE }"
+            app:layout_constraintBottom_toBottomOf="@id/image_view_error"
+            app:layout_constraintStart_toEndOf="@+id/image_view_error"
+            app:layout_constraintTop_toTopOf="@id/image_view_error"
+            tools:text="Error" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_view_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="6dp"
+            android:visibility="@{isValid &amp; require  ? View.VISIBLE :  View.GONE }"
+            app:layout_constraintStart_toStartOf="@+id/text_view_title"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_title"
+            tools:src="@drawable/ic_baseline_error_24" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

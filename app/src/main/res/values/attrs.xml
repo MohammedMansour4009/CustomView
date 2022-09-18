@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CustomView">
+        <attr name="status" format="enum">
+            <enum name="Optional" value="0" />
+            <enum name="Require" value="1" />
+        </attr>
+
+        <attr name="titleText" format="string" />
+        <attr name="errorText" format="string" />
+        <attr name="errorIcon" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomRecyclerView">
+        <attr name="emptyText" format="string"/>
+    </declare-styleable>
+
+</resources>
